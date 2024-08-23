@@ -86,3 +86,5 @@ export const styledTheme: IStyledTheme = {
   breakpointsInt,
   ...breakpoints,
 };
+
+export const { up, down, between, only } = styledTheme.breakpoints;
