@@ -9,6 +9,22 @@ export interface IBreakpointsInt {
   xl: number;
 }
 
+export interface IColorVariant {
+  light?: string;
+  main: string;
+  dark?: string;
+}
+
+export interface IFontWeightVariant {
+  extraLight: number;
+  light: number;
+  regular: number;
+  medium: number;
+  semiBold: number;
+  bold: number;
+  extraBold: number;
+}
+
 export interface INeutralColor {
   neutral50: string;
   neutral100: string;
@@ -29,10 +45,17 @@ export interface IPrimaryColor {
 }
 
 export interface ISematicColor {
-  info: string;
-  error: string;
-  warning: string;
-  success: string;
+  info: IColorVariant;
+  error: IColorVariant;
+  warning: IColorVariant;
+  success: IColorVariant;
+}
+
+export interface ITypographyColor {
+  heading: IColorVariant;
+  paragraph: IColorVariant;
+  label: IColorVariant;
+  ctaLabel: IColorVariant;
 }
 
 export interface IStyledTheme
@@ -44,6 +67,8 @@ export interface IStyledTheme
     neutral: INeutralColor;
     primary: IPrimaryColor;
     sematic: ISematicColor;
+    typography: ITypographyColor;
   };
+  fontWeightVariant: IFontWeightVariant;
   breakpointsInt: IBreakpointsInt;
 }

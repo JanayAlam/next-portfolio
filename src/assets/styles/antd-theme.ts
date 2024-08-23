@@ -4,6 +4,10 @@ import { styledTheme } from "./styled-theme";
 export const antDesignTheme: ThemeConfig = {
   token: {
     colorPrimary: styledTheme.colors.primary.main,
+    colorInfo: styledTheme.colors.sematic.info.main,
+    colorError: styledTheme.colors.sematic.error.main,
+    colorWarning: styledTheme.colors.sematic.warning.main,
+    colorSuccess: styledTheme.colors.sematic.success.main,
   },
   components: {
     Button: {

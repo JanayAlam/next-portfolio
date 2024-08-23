@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, ButtonProps } from "antd";
+import { ButtonProps } from "antd";
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
+import BaseButton from "./BaseButton";
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(BaseButton)`
   border: none;
   padding: 0;
   height: 20px;
@@ -26,7 +27,7 @@ const TextButton: React.FC<PropsWithChildren<ButtonProps>> = ({
   ...rest
 }) => {
   return (
-    <StyledButton type="text" {...rest}>
+    <StyledButton {...rest} size="small" type="text">
       {children}
     </StyledButton>
   );

@@ -42,11 +42,44 @@ export const styledTheme: IStyledTheme = {
       gradient: "#5A7CFF, #5FC6FF",
     },
     sematic: {
-      info: "",
-      error: "",
-      success: "",
-      warning: "",
+      info: {
+        main: "#5A7CFF",
+      },
+      error: {
+        main: "#E9524A",
+      },
+      success: {
+        main: "#F29B28",
+      },
+      warning: {
+        main: "#1CB47C",
+      },
     },
+    typography: {
+      heading: {
+        main: "#181F27",
+      },
+      paragraph: {
+        main: "#000000",
+      },
+      label: {
+        main: "#000000",
+      },
+      ctaLabel: {
+        main: "#000000",
+      },
+    },
+  },
+
+  // font weight
+  fontWeightVariant: {
+    extraLight: 100,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+    extraBold: 1000,
   },
 
   // breakpoints

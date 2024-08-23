@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, ButtonProps } from "antd";
+import { ButtonProps } from "antd";
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
+import BaseButton from "./BaseButton";
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(BaseButton)`
   border: 1px solid ${({ theme }) => theme.colors.neutral.neutral300};
 
   color: ${({ theme }) => theme.colors.neutral.neutral800};
@@ -28,7 +29,11 @@ const TertiaryButton: React.FC<PropsWithChildren<ButtonProps>> = ({
   children,
   ...rest
 }) => {
-  return <StyledButton {...rest}>{children}</StyledButton>;
+  return (
+    <StyledButton {...rest} type="primary">
+      {children}
+    </StyledButton>
+  );
 };
 
 export default TertiaryButton;
