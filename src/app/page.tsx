@@ -1,95 +1,241 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Button from "@/components/atoms/button";
+import { ArrowRightOutlined, EditOutlined } from "@ant-design/icons";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+    <main>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "start",
+          gap: "5rem",
+          flexWrap: "wrap",
+        }}
+      >
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button size="large" disabled>
+              Button text
+            </Button>
+            <Button size="large">Button text</Button>
+            <Button
+              size="large"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+            >
+              Button text
+            </Button>
+            <Button size="large" icon={<EditOutlined />} iconPosition="end" />
+          </div>
+
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button disabled>Button text</Button>
+            <Button>Button text</Button>
+            <Button icon={<ArrowRightOutlined />} iconPosition="end">
+              Button text
+            </Button>
+            <Button icon={<EditOutlined />} iconPosition="end" />
+          </div>
+
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button size="small" disabled>
+              Button text
+            </Button>
+            <Button size="small">Button text</Button>
+            <Button
+              size="small"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+            >
+              Button text
+            </Button>
+            <Button size="small" icon={<EditOutlined />} iconPosition="end" />
+          </div>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "2rem" }}>
+            <Button size="large" disabled secondary>
+              Button text
+            </Button>
+            <Button size="large" secondary>
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              secondary
+            >
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              secondary
+            />
+          </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button disabled secondary>
+              Button text
+            </Button>
+            <Button secondary>Button text</Button>
+            <Button icon={<ArrowRightOutlined />} iconPosition="end" secondary>
+              Button text
+            </Button>
+            <Button icon={<EditOutlined />} iconPosition="end" secondary />
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button size="small" disabled secondary>
+              Button text
+            </Button>
+            <Button size="small" secondary>
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              secondary
+            >
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              secondary
+            />
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+        <div>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "2rem" }}>
+            <Button size="large" disabled tertiary>
+              Button text
+            </Button>
+            <Button size="large" tertiary>
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              tertiary
+            >
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              tertiary
+            />
+          </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button disabled tertiary>
+              Button text
+            </Button>
+            <Button tertiary>Button text</Button>
+            <Button icon={<ArrowRightOutlined />} iconPosition="end" tertiary>
+              Button text
+            </Button>
+            <Button icon={<EditOutlined />} iconPosition="end" tertiary />
+          </div>
+
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button size="small" disabled tertiary>
+              Button text
+            </Button>
+            <Button size="small" tertiary>
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              tertiary
+            >
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              tertiary
+            />
+          </div>
+        </div>
+
+        <div>
+          <div style={{ padding: "2rem 0", display: "flex", gap: "2rem" }}>
+            <Button size="large" disabled type="text">
+              Button text
+            </Button>
+            <Button size="large" type="text">
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              type="text"
+            >
+              Button text
+            </Button>
+            <Button
+              size="large"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              type="text"
+            />
+          </div>
+
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button disabled type="text">
+              Button text
+            </Button>
+            <Button type="text">Button text</Button>
+            <Button
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              type="text"
+            >
+              Button text
+            </Button>
+            <Button icon={<EditOutlined />} iconPosition="end" type="text" />
+          </div>
+
+          <div style={{ padding: "2rem 0", display: "flex", gap: "1rem" }}>
+            <Button size="small" disabled type="text">
+              Button text
+            </Button>
+            <Button size="small" type="text">
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<ArrowRightOutlined />}
+              iconPosition="end"
+              type="text"
+            >
+              Button text
+            </Button>
+            <Button
+              size="small"
+              icon={<EditOutlined />}
+              iconPosition="end"
+              type="text"
+            />
+          </div>
+        </div>
       </div>
     </main>
   );
-}
+};
+
+export default Home;
