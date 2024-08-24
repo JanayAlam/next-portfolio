@@ -1,5 +1,9 @@
-import Heading from "@/components/atoms/typography";
-import Paragraph from "@/components/atoms/typography/Paragraph";
+import {
+  CTALabel,
+  Heading,
+  Label,
+  Paragraph,
+} from "@/components/atoms/typography";
 
 const Home = () => {
   return (
@@ -9,13 +13,10 @@ const Home = () => {
           display: "flex",
           alignItems: "start",
           flexDirection: "column",
-          gap: "0.5rem",
           flexWrap: "wrap",
         }}
       >
-        <Heading level={1} fontWeightVariant="bold">
-          Inter Font Family
-        </Heading>
+        <Heading level={1}>Inter Font Family</Heading>
         <Paragraph level={1}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste placeat
           voluptatum animi corporis exercitationem eligendi excepturi. Expedita
@@ -36,6 +37,8 @@ const Home = () => {
           suscipit est expedita quasi atque laboriosam, ad eius nisi. Rem, sunt
           debitis.
         </Paragraph>
+        <Label level={1}>This is a label</Label>
+        <CTALabel underlined>This is a CTA label</CTALabel>
       </div>
     </main>
   );

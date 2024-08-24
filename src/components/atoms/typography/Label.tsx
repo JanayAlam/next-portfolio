@@ -7,30 +7,26 @@ import {
   ISematicColor,
   ITypographyColor,
 } from "@/assets/styles/styled-theme.types";
-import { TTextAlign } from "@/types";
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 const fontSizes = {
-  desktop: ["1rem", "0.875rem", "0.75rem"],
-  mobile: ["1rem", "0.875rem", "0.75rem"],
+  desktop: ["1rem", "0.875rem"],
+  mobile: ["1rem", "0.875rem"],
 };
 
 const lineHeights = {
-  desktop: ["1.5rem", "1.375rem", "1.25rem"],
-  mobile: ["1.5rem", "1.375rem", "1.25rem"],
+  desktop: ["1rem", "1rem"],
+  mobile: ["1rem", "1rem"],
 };
 
-const StyledParagraph = styled.p<{
+const StyledLabel = styled.label<{
   $level: number;
   $fontWeight: number;
   $typographyColor?: keyof ITypographyColor;
   $sematicColor?: keyof ISematicColor;
   $colorVariant?: keyof IColorVariant;
-  $textAlign: TTextAlign;
   $margin?: string;
-  $underlined?: boolean;
-  $italic?: boolean;
 }>`
   font-size: ${({ $level }) => fontSizes.mobile[$level - 1]};
   line-height: ${({ $level }) => lineHeights.mobile[$level - 1]};
@@ -44,13 +40,10 @@ const StyledParagraph = styled.p<{
         theme.colors.typography[$typographyColor][$colorVariant]
         ? theme.colors.typography[$typographyColor][$colorVariant]
         : theme.colors.typography[$typographyColor].main
-      : theme.colors.typography.paragraph.main};
+      : theme.colors.typography.label.main};
   font-weight: ${({ $fontWeight }) => $fontWeight};
-  text-align: ${({ $textAlign }) => $textAlign};
   margin: ${({ $margin }) => $margin ?? "0"};
-  text-decoration: ${({ $underlined }) =>
-    $underlined ? "underline" : undefined};
-  font-style: ${({ $italic }) => ($italic ? "italic" : undefined)};
+  letter-spacing: 2%;
 
   ${up("sm")} {
     font-size: ${({ $level }) => fontSizes.desktop[$level - 1]};
@@ -59,19 +52,16 @@ const StyledParagraph = styled.p<{
 `;
 
 interface IProps {
-  level?: 1 | 2 | 3;
+  level?: 1 | 2;
   fontWeight?: number;
   fontWeightVariant?: keyof IFontWeightVariant;
   typographyColor?: keyof ITypographyColor;
   sematicColor?: keyof ISematicColor;
   colorVariant?: keyof IColorVariant;
-  textAlign?: TTextAlign;
   margin?: string;
-  underlined?: boolean;
-  italic?: boolean;
 }
 
-const Paragraph: React.FC<PropsWithChildren<IProps>> = ({
+const Label: React.FC<PropsWithChildren<IProps>> = ({
   level = 1,
   fontWeight,
   fontWeightVariant = "regular",
@@ -79,13 +69,10 @@ const Paragraph: React.FC<PropsWithChildren<IProps>> = ({
   sematicColor,
   colorVariant,
   margin,
-  textAlign = "left",
-  underlined = false,
-  italic = false,
   children,
 }) => {
   return (
-    <StyledParagraph
+    <StyledLabel
       $level={level}
       $fontWeight={
         fontWeight ?? styledTheme.fontWeightVariant[fontWeightVariant]
@@ -93,14 +80,11 @@ const Paragraph: React.FC<PropsWithChildren<IProps>> = ({
       $typographyColor={typographyColor}
       $sematicColor={sematicColor}
       $colorVariant={colorVariant}
-      $textAlign={textAlign}
       $margin={margin}
-      $underlined={underlined}
-      $italic={italic}
     >
       {children}
-    </StyledParagraph>
+    </StyledLabel>
   );
 };
 
-export default Paragraph;
+export default Label;

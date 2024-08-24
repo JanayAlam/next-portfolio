@@ -49,10 +49,10 @@ export const styledTheme: IStyledTheme = {
         main: "#E9524A",
       },
       success: {
-        main: "#F29B28",
+        main: "#1CB47C",
       },
       warning: {
-        main: "#1CB47C",
+        main: "#F29B28",
       },
     },
     typography: {

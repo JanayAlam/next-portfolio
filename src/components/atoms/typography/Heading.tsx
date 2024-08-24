@@ -4,6 +4,8 @@ import { styledTheme, up } from "@/assets/styles/styled-theme";
 import {
   IColorVariant,
   IFontWeightVariant,
+  ISematicColor,
+  ITypographyColor,
 } from "@/assets/styles/styled-theme.types";
 import React, { PropsWithChildren } from "react";
 import {} from "styled-breakpoints";
@@ -22,14 +24,26 @@ const lineHeights = {
 const StyledHeading = styled.h1<{
   $level: number;
   $fontWeight: number;
-  $colorVariant: keyof IColorVariant;
+  $typographyColor?: keyof ITypographyColor;
+  $sematicColor?: keyof ISematicColor;
+  $colorVariant?: keyof IColorVariant;
+  $margin?: string;
 }>`
   font-size: ${({ $level }) => fontSizes.mobile[$level - 1]};
   line-height: ${({ $level }) => lineHeights.mobile[$level - 1]};
-  color: ${({ $colorVariant, theme }) =>
-    theme.colors.typography.heading[$colorVariant] ??
-    theme.colors.typography.heading.main};
+  color: ${({ $sematicColor, $typographyColor, $colorVariant, theme }) =>
+    $sematicColor
+      ? $colorVariant && theme.colors.sematic[$sematicColor][$colorVariant]
+        ? theme.colors.sematic[$sematicColor][$colorVariant]
+        : theme.colors.sematic[$sematicColor].main
+      : $typographyColor
+      ? $colorVariant &&
+        theme.colors.typography[$typographyColor][$colorVariant]
+        ? theme.colors.typography[$typographyColor][$colorVariant]
+        : theme.colors.typography[$typographyColor].main
+      : theme.colors.typography.heading.main};
   font-weight: ${({ $fontWeight }) => $fontWeight};
+  margin: ${({ $margin }) => $margin ?? "0"};
 
   ${up("sm")} {
     font-size: ${({ $level }) => fontSizes.desktop[$level - 1]};
@@ -41,15 +55,21 @@ interface IProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   fontWeight?: number;
   fontWeightVariant?: keyof IFontWeightVariant;
+  typographyColor?: keyof ITypographyColor;
+  sematicColor?: keyof ISematicColor;
   colorVariant?: keyof IColorVariant;
+  margin?: string;
 }
 
 const Heading: React.FC<PropsWithChildren<IProps>> = ({
   level = 1,
   fontWeight,
   fontWeightVariant = "medium",
-  colorVariant = "main",
+  typographyColor,
+  sematicColor,
+  colorVariant,
   children,
+  margin,
 }) => {
   return (
     <StyledHeading
@@ -58,7 +78,10 @@ const Heading: React.FC<PropsWithChildren<IProps>> = ({
       $fontWeight={
         fontWeight ?? styledTheme.fontWeightVariant[fontWeightVariant]
       }
+      $typographyColor={typographyColor}
+      $sematicColor={sematicColor}
       $colorVariant={colorVariant}
+      $margin={margin}
     >
       {children}
     </StyledHeading>
