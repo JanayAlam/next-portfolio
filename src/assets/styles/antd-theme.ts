@@ -10,6 +10,10 @@ export const antDesignTheme: ThemeConfig = {
     colorSuccess: styledTheme.colors.sematic.success.main,
   },
   components: {
+    Avatar: {
+      controlHeight: 48,
+      controlHeightSM: 40,
+    },
     Button: {
       // height
       controlHeight: 40,

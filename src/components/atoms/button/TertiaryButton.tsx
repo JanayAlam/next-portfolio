@@ -9,7 +9,7 @@ const StyledButton = styled(BaseButton)`
   border: 1px solid ${({ theme }) => theme.colors.neutral.neutral300};
 
   color: ${({ theme }) => theme.colors.neutral.neutral800};
-  background: ${({ theme }) => theme.colors.neutral.neutral50};
+  background: #fff;
 
   &:hover {
     color: ${({ theme }) => theme.colors.neutral.neutral800} !important;
