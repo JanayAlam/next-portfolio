@@ -15,6 +15,14 @@ export interface IColorVariant {
   dark?: string;
 }
 
+export interface IShadow {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+}
+
 export interface IFontWeightVariant {
   extraLight: number;
   light: number;
@@ -65,10 +73,12 @@ export interface IStyledTheme
   > {
   colors: {
     neutral: INeutralColor;
+    border: IColorVariant;
     primary: IPrimaryColor;
     sematic: ISematicColor;
     typography: ITypographyColor;
   };
+  shadow: IShadow;
   fontWeightVariant: IFontWeightVariant;
   breakpointsInt: IBreakpointsInt;
 }

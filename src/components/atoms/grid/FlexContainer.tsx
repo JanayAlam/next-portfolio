@@ -11,6 +11,7 @@ const StyledFlexContainer = styled.div<{
   $alignItems?: string;
   $justifyContent?: string;
   $width?: string;
+  $flexWrap?: string;
 }>`
   display: flex;
   flex-direction: ${({ $flexFlow }) => $flexFlow ?? "row"};
@@ -18,6 +19,7 @@ const StyledFlexContainer = styled.div<{
   align-items: ${({ $alignItems }) => $alignItems ?? "center"};
   justify-content: ${({ $justifyContent }) => $justifyContent ?? "center"};
   width: ${({ $width }) => $width};
+  flex-wrap: ${({ $flexWrap }) => $flexWrap};
 `;
 
 interface IProps {
@@ -27,6 +29,8 @@ interface IProps {
   alignItems?: string;
   justifyContent?: string;
   width?: string;
+  flexWrap?: string;
+  className?: string;
 }
 
 const FlexContainer: React.FC<PropsWithChildren<IProps>> = ({
@@ -36,15 +40,19 @@ const FlexContainer: React.FC<PropsWithChildren<IProps>> = ({
   alignItems,
   justifyContent,
   width,
+  flexWrap,
+  className,
   children,
 }) => {
   return (
     <StyledFlexContainer
+      className={className}
       $gap={gap}
       $flexFlow={column ? "column" : flexFlow}
       $alignItems={alignItems}
       $justifyContent={justifyContent}
       $width={width}
+      $flexWrap={flexWrap}
     >
       {children}
     </StyledFlexContainer>

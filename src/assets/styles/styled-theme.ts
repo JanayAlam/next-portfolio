@@ -36,6 +36,9 @@ export const styledTheme: IStyledTheme = {
       neutral800: "#23282F",
       neutral900: "#181F27",
     },
+    border: {
+      main: "#CBD5E1",
+    },
     primary: {
       main: "#5FC6FF",
       dark: "#233358",
@@ -80,6 +83,15 @@ export const styledTheme: IStyledTheme = {
     semiBold: 600,
     bold: 700,
     extraBold: 1000,
+  },
+
+  // shadow
+  shadow: {
+    xs: "0px 2px 4px 0px #2D34390A",
+    sm: "0px 2px 4px 0px #2D34390A, 0px 4px 8px -2px #2D343914",
+    md: "0px 4px 8px 0px #2D34390A, 0px 4px 16px -4px #2D34391F",
+    lg: "0px 8px 16px 0px #2D34390A, 0px 4px 24px -8px #2D343929",
+    xl: "0px 8px 40px -12px #2D343933",
   },
 
   // breakpoints
