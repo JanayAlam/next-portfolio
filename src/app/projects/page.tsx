@@ -1,3 +1,4 @@
+import Projects from "@/components/templates/projects";
 import { Metadata } from "next";
 import React from "react";
 
@@ -5,8 +6,8 @@ export const metadata: Metadata = {
   title: "Projects | Janay Alam",
 };
 
-const Projects: React.FC = () => {
-  return <>This is projects page</>;
+const ProjectsPage: React.FC = () => {
+  return <Projects />;
 };
 
-export default Projects;
+export default ProjectsPage;

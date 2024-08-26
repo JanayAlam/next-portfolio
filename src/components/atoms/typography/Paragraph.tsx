@@ -24,6 +24,7 @@ const lineHeights = {
 const StyledParagraph = styled.p<{
   $level: number;
   $fontWeight: number;
+  $color?: string;
   $typographyColor?: keyof ITypographyColor;
   $sematicColor?: keyof ISematicColor;
   $colorVariant?: keyof IColorVariant;
@@ -34,8 +35,16 @@ const StyledParagraph = styled.p<{
 }>`
   font-size: ${({ $level }) => fontSizes.mobile[$level - 1]};
   line-height: ${({ $level }) => lineHeights.mobile[$level - 1]};
-  color: ${({ $sematicColor, $typographyColor, $colorVariant, theme }) =>
-    $sematicColor
+  color: ${({
+    $color,
+    $sematicColor,
+    $typographyColor,
+    $colorVariant,
+    theme,
+  }) =>
+    $color
+      ? $color
+      : $sematicColor
       ? $colorVariant && theme.colors.sematic[$sematicColor][$colorVariant]
         ? theme.colors.sematic[$sematicColor][$colorVariant]
         : theme.colors.sematic[$sematicColor].main
@@ -62,6 +71,7 @@ interface IProps {
   level?: 1 | 2 | 3;
   fontWeight?: number;
   fontWeightVariant?: keyof IFontWeightVariant;
+  color?: string;
   typographyColor?: keyof ITypographyColor;
   sematicColor?: keyof ISematicColor;
   colorVariant?: keyof IColorVariant;
@@ -75,6 +85,7 @@ const Paragraph: React.FC<PropsWithChildren<IProps>> = ({
   level = 1,
   fontWeight,
   fontWeightVariant = "regular",
+  color,
   typographyColor,
   sematicColor,
   colorVariant,
@@ -90,6 +101,7 @@ const Paragraph: React.FC<PropsWithChildren<IProps>> = ({
       $fontWeight={
         fontWeight ?? styledTheme.fontWeightVariant[fontWeightVariant]
       }
+      $color={color}
       $typographyColor={typographyColor}
       $sematicColor={sematicColor}
       $colorVariant={colorVariant}

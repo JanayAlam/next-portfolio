@@ -8,11 +8,16 @@ const StyledLink = styled(NextLink)`
   text-decoration: none;
 `;
 
-const Link: React.FC<PropsWithChildren<LinkProps>> = ({
+const Link: React.FC<PropsWithChildren<{ target?: string } & LinkProps>> = ({
   children,
+  target,
   ...rest
 }) => {
-  return <StyledLink {...rest}>{children}</StyledLink>;
+  return (
+    <StyledLink target={target} {...rest}>
+      {children}
+    </StyledLink>
+  );
 };
 
 export default Link;

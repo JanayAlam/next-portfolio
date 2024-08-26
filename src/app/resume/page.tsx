@@ -1,3 +1,4 @@
+import Resume from "@/components/templates/resume";
 import { Metadata } from "next";
 import React from "react";
 
@@ -5,8 +6,8 @@ export const metadata: Metadata = {
   title: "Resume | Janay Alam",
 };
 
-const Resume: React.FC = () => {
-  return <>This is resume page</>;
+const ResumePage: React.FC = () => {
+  return <Resume />;
 };
 
-export default Resume;
+export default ResumePage;

@@ -99,7 +99,7 @@ export const styledTheme: IStyledTheme = {
 
   // default ui sizes
   ui: {
-    sidePadding: "5rem",
+    sidePadding: "2rem",
     navbarHeightDesktop: "5rem",
     navbarHeightMobile: "4rem",
   },

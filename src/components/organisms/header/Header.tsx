@@ -3,7 +3,7 @@
 import { MenuIcon } from "@/assets/icons";
 import { styledTheme, up } from "@/assets/styles/styled-theme";
 import { TertiaryButton, TextButton } from "@/components/atoms/button";
-import { Container, FlexContainer, Space } from "@/components/atoms/grid";
+import { FlexContainer, Space } from "@/components/atoms/grid";
 import Link from "@/components/atoms/link";
 import Logo from "@/components/atoms/logo";
 import { useBreakPoints } from "@/hooks/useBreakPoints";
@@ -12,6 +12,25 @@ import { Drawer, Menu } from "antd";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+
+const HeaderContainer = styled.nav<{
+  $borderBottom?: string;
+  $shadow?: string;
+}>`
+  width: 100%;
+  height: ${({ theme }) => styledTheme.ui.navbarHeightMobile};
+  padding: 0 auto;
+  background-color: #ffffff;
+  position: fixed;
+  border-bottom: ${({ $borderBottom }) => $borderBottom};
+  box-shadow: ${({ $shadow }) => $shadow};
+  z-index: 1000;
+
+  ${up("xs")} {
+    height: ${({ theme }) => styledTheme.ui.navbarHeightMobile};
+    padding: ${({ theme }) => styledTheme.ui.sidePadding};
+  }
+`;
 
 const DesktopHeader = styled.div`
   font-family: "Inter", sans-serif;
@@ -28,6 +47,7 @@ const MobileHeader = styled.div`
   font-family: "Inter", sans-serif;
   height: 100%;
   display: flex;
+  margin-inline: 1rem;
   align-items: center;
   justify-content: space-between;
 
@@ -85,7 +105,7 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const { upXs } = useBreakPoints();
+  const { upSm } = useBreakPoints();
   const menuItems = useNavigationItems();
   const router = useRouter();
 
@@ -95,20 +115,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Container
-      height={
-        upXs
-          ? styledTheme.ui.navbarHeightDesktop
-          : styledTheme.ui.navbarHeightMobile
-      }
-      width="100%"
-      padding={upXs ? `0 ${styledTheme.ui.sidePadding}` : "1rem"}
-      backgroundColor="#ffffff"
-      position="fixed"
-      borderBottom={
+    <HeaderContainer
+      $borderBottom={
         isScrolled ? `1px solid ${styledTheme.colors.border.light}` : undefined
       }
-      shadow={isScrolled ? "sm" : undefined}
+      $shadow={isScrolled ? "sm" : undefined}
     >
       <DesktopHeader>
         <Logo />
@@ -172,7 +183,7 @@ const Header: React.FC = () => {
           ]}
         />
       </StyledDrawer>
-    </Container>
+    </HeaderContainer>
   );
 };
 

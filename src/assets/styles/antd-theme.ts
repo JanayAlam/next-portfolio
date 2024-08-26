@@ -10,6 +10,9 @@ export const antDesignTheme: ThemeConfig = {
     colorSuccess: styledTheme.colors.sematic.success.main,
   },
   components: {
+    Drawer: {
+      zIndexPopup: 90000,
+    },
     Avatar: {
       controlHeight: 48,
       controlHeightSM: 40,
