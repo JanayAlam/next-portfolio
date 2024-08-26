@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Resume: React.FC = () => {
-  return <div>This is resume page</div>;
+  return <>This is resume page</>;
 };
 
 export default Resume;

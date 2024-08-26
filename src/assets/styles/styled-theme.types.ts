@@ -49,7 +49,8 @@ export interface INeutralColor {
 export interface IPrimaryColor {
   main: string;
   dark: string;
-  gradient: string;
+  gradient1: string;
+  gradient2: string;
 }
 
 export interface ISematicColor {
@@ -79,6 +80,11 @@ export interface IStyledTheme
     typography: ITypographyColor;
   };
   shadow: IShadow;
+  ui: {
+    navbarHeightDesktop: string;
+    navbarHeightMobile: string;
+    sidePadding: string;
+  };
   fontWeightVariant: IFontWeightVariant;
   breakpointsInt: IBreakpointsInt;
 }

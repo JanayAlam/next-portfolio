@@ -37,12 +37,15 @@ export const styledTheme: IStyledTheme = {
       neutral900: "#181F27",
     },
     border: {
+      light: "#F1F5F9",
       main: "#CBD5E1",
+      dark: "#94A3B8",
     },
     primary: {
       main: "#5FC6FF",
       dark: "#233358",
-      gradient: "#5A7CFF, #5FC6FF",
+      gradient1: "#5A7CFF, #5FC6FF",
+      gradient2: "#5A7CFF10, 1%, #5FC6FF10",
     },
     sematic: {
       info: {
@@ -92,6 +95,13 @@ export const styledTheme: IStyledTheme = {
     md: "0px 4px 8px 0px #2D34390A, 0px 4px 16px -4px #2D34391F",
     lg: "0px 8px 16px 0px #2D34390A, 0px 4px 24px -8px #2D343929",
     xl: "0px 8px 40px -12px #2D343933",
+  },
+
+  // default ui sizes
+  ui: {
+    sidePadding: "5rem",
+    navbarHeightDesktop: "5rem",
+    navbarHeightMobile: "4rem",
   },
 
   // breakpoints

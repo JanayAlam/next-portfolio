@@ -27,7 +27,7 @@ const TextButton: React.FC<PropsWithChildren<ButtonProps>> = ({
   ...rest
 }) => {
   return (
-    <StyledButton {...rest} size="small" type="text">
+    <StyledButton {...rest} type="text">
       {children}
     </StyledButton>
   );

@@ -1,4 +1,4 @@
-import Header from "@/components/organisms/header";
+import Layout from "@/components/layout";
 import Providers from "@/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -19,8 +19,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <Header />
-          {children}
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>

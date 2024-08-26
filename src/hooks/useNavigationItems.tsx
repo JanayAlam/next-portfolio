@@ -9,17 +9,17 @@ const useNavigationItems = (): INavigationItem[] => {
     {
       key: "about",
       display: "About",
-      path: undefined,
+      path: "/about",
     },
     {
       key: "projects",
       display: "Projects",
-      path: undefined,
+      path: "/projects",
     },
     {
       key: "blogs",
       display: "Blogs",
-      path: undefined,
+      path: "/blogs",
     },
   ];
 };

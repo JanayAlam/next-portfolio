@@ -10,7 +10,12 @@ const StyledContainer = styled.div<{
   $bgColor?: string;
   $width?: string;
   $height?: string;
+  $position?: string;
   $border?: string;
+  $borderTop?: string;
+  $borderBottom?: string;
+  $borderRight?: string;
+  $borderLeft?: string;
   $borderRadius?: string;
   $boxShadow?: keyof IShadow;
 }>`
@@ -18,8 +23,13 @@ const StyledContainer = styled.div<{
   padding: ${({ $padding }) => $padding ?? "0"};
   background-color: ${({ $bgColor }) => $bgColor ?? undefined};
   width: ${({ $width }) => $width};
+  position: ${({ $position }) => $position};
   height: ${({ $height }) => $height ?? "fit-content"};
   border: ${({ $border }) => $border ?? "0"};
+  border-top: ${({ $borderTop }) => $borderTop};
+  border-bottom: ${({ $borderBottom }) => $borderBottom};
+  border-right: ${({ $borderRight }) => $borderRight};
+  border-left: ${({ $borderLeft }) => $borderLeft};
   border-radius: ${({ $borderRadius }) => $borderRadius ?? "0"};
   box-shadow: ${({ $boxShadow, theme }) =>
     $boxShadow ? theme.shadow[$boxShadow] : undefined};
@@ -32,6 +42,11 @@ interface IProps {
   width?: string;
   height?: string;
   border?: string;
+  borderTop?: string;
+  borderBottom?: string;
+  borderRight?: string;
+  borderLeft?: string;
+  position?: string;
   borderRadius?: string;
   shadow?: keyof IShadow;
 }
@@ -43,7 +58,12 @@ const Container: React.FC<PropsWithChildren<IProps>> = ({
   width,
   height,
   border,
+  borderTop,
+  borderBottom,
+  borderRight,
+  borderLeft,
   borderRadius,
+  position,
   shadow,
   children,
 }) => {
@@ -55,8 +75,13 @@ const Container: React.FC<PropsWithChildren<IProps>> = ({
       $width={width}
       $height={height}
       $border={border}
+      $borderTop={borderTop}
+      $borderBottom={borderBottom}
+      $borderRight={borderRight}
+      $borderLeft={borderLeft}
       $borderRadius={borderRadius}
       $boxShadow={shadow}
+      $position={position}
     >
       {children}
     </StyledContainer>
