@@ -6,7 +6,6 @@ import { TertiaryButton, TextButton } from "@/components/atoms/button";
 import { FlexContainer, Space } from "@/components/atoms/grid";
 import Link from "@/components/atoms/link";
 import Logo from "@/components/atoms/logo";
-import { useBreakPoints } from "@/hooks/useBreakPoints";
 import useNavigationItems from "@/hooks/useNavigationItems";
 import { Drawer, Menu } from "antd";
 import { useRouter } from "next/navigation";
@@ -105,7 +104,6 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const { upSm } = useBreakPoints();
   const menuItems = useNavigationItems();
   const router = useRouter();
 

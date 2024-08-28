@@ -1,12 +1,7 @@
-import React, { SVGProps } from "react";
+import React from "react";
+import ISvgProps from "./props.type";
 
-interface IProps extends SVGProps<SVGElement> {
-  fill?: string;
-  height?: string;
-  width?: string;
-}
-
-const MenuIconSvg: React.FC<IProps> = ({ height, width, fill }) => (
+const MenuIconSvg: React.FC<ISvgProps> = ({ height, width, fill }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width ?? "24px"}

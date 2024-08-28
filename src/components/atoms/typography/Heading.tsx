@@ -11,13 +11,13 @@ import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 const fontSizes = {
-  desktop: ["3rem", "2.75rem", "2.25rem", "1.75rem", "1.5rem", "1.25rem"],
-  mobile: ["1.75rem", "1.5rem", "1.25rem", "1.25rem", "1.25rem", "1.25rem"],
+  desktop: ["3rem", "2.5rem", "2.25rem", "1.75rem", "1.5rem", "1.25rem"],
+  mobile: ["1.75rem", "1.5rem", "1.25rem", "1rem", "1rem", "1rem"],
 };
 
 const lineHeights = {
-  desktop: ["3.5rem", "3.25rem", "2.75rem", "2.375rem", "2rem", "1.75rem"],
-  mobile: ["2rem", "1.875rem", "1.75rem", "1.75rem", "1.75rem", "1.75rem"],
+  desktop: ["3.5rem", "3rem", "2.75rem", "2.375rem", "2rem", "1.75rem"],
+  mobile: ["2rem", "1.875rem", "1.75rem", "1.25rem", "1.25rem", "1.25rem"],
 };
 
 const StyledHeading = styled.h1<{
@@ -27,6 +27,7 @@ const StyledHeading = styled.h1<{
   $typographyColor?: keyof ITypographyColor;
   $sematicColor?: keyof ISematicColor;
   $colorVariant?: keyof IColorVariant;
+  $gradient?: boolean;
   $margin?: string;
 }>`
   font-size: ${({ $level }) => fontSizes.mobile[$level - 1]};
@@ -53,6 +54,14 @@ const StyledHeading = styled.h1<{
   font-weight: ${({ $fontWeight }) => $fontWeight};
   margin: ${({ $margin }) => $margin ?? "0"};
 
+  background: -webkit-linear-gradient(
+    ${({ theme, $gradient }) =>
+      $gradient ? theme.colors.primary.gradient1 : undefined}
+  );
+  background-clip: ${({ $gradient }) => ($gradient ? "text" : undefined)};
+  -webkit-text-fill-color: ${({ $gradient }) =>
+    $gradient ? "transparent" : undefined};
+
   ${up("sm")} {
     font-size: ${({ $level }) => fontSizes.desktop[$level - 1]};
     line-height: ${({ $level }) => lineHeights.desktop[$level - 1]};
@@ -68,12 +77,14 @@ interface IProps {
   sematicColor?: keyof ISematicColor;
   colorVariant?: keyof IColorVariant;
   margin?: string;
+  gradient?: boolean;
 }
 
 const Heading: React.FC<PropsWithChildren<IProps>> = ({
   level = 1,
   fontWeight,
   fontWeightVariant = "medium",
+  gradient,
   color,
   typographyColor,
   sematicColor,
@@ -88,11 +99,12 @@ const Heading: React.FC<PropsWithChildren<IProps>> = ({
       $fontWeight={
         fontWeight ?? styledTheme.fontWeightVariant[fontWeightVariant]
       }
-      $typographyColor={typographyColor}
-      $sematicColor={sematicColor}
-      $colorVariant={colorVariant}
+      $typographyColor={!gradient ? typographyColor : undefined}
+      $sematicColor={!gradient ? sematicColor : undefined}
+      $colorVariant={!gradient ? colorVariant : undefined}
       $margin={margin}
-      $color={color}
+      $color={!gradient ? color : undefined}
+      $gradient={gradient}
     >
       {children}
     </StyledHeading>

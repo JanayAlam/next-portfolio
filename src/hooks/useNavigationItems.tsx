@@ -7,14 +7,14 @@ interface INavigationItem {
 const useNavigationItems = (): INavigationItem[] => {
   return [
     {
-      key: "about",
-      display: "About",
-      path: "/about",
-    },
-    {
       key: "projects",
       display: "Projects",
       path: "/projects",
+    },
+    {
+      key: "about",
+      display: "About",
+      path: "/about",
     },
     {
       key: "blogs",

@@ -1,35 +1,16 @@
 "use client";
 
+import { LightingBoltIcon } from "@/assets/icons";
 import { styledTheme, up } from "@/assets/styles/styled-theme";
 import { PrimaryButton, TertiaryButton } from "@/components/atoms/button";
 import { FlexContainer, Space } from "@/components/atoms/grid";
+import SectionContainer from "@/components/atoms/grid/SectionContainer";
 import Link from "@/components/atoms/link";
 import { Heading, Paragraph } from "@/components/atoms/typography";
-import { useBreakPoints } from "@/hooks/useBreakPoints";
 import useSocialMediaList from "@/hooks/useSocialMediaList";
 import { MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
-import personalImage from "../../../assets/images/personal/personal.jpg";
-
-const HeroSectionContainer = styled.div`
-  background-color: #f8fafc;
-  padding: 3rem 1rem;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-
-  ${up("md")} {
-    gap: 3rem;
-    padding: 2rem;
-  }
-
-  ${up("sl")} {
-    gap: 10rem;
-  }
-`;
 
 const HeroSectionItem = styled.div`
   max-width: 760px;
@@ -42,6 +23,11 @@ const PrimaryGradientColoredText = styled.span`
   );
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: block;
+
+  ${up("sm")} {
+    display: inline;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -52,13 +38,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledImage = styled(Image)`
-  border-radius: 6px;
-`;
-
 const HeroSection: React.FC = () => {
   const socialMediaList = useSocialMediaList();
-  const { upMd, upXs, upLg } = useBreakPoints();
 
   const handleMailTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -71,23 +52,30 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <HeroSectionContainer>
+    <SectionContainer primary>
       <HeroSectionItem>
+        <FlexContainer gap="0.5rem" alignItems="center">
+          <LightingBoltIcon />
+          <Heading level={6} gradient fontWeightVariant="semiBold">
+            Open to new projects
+          </Heading>
+        </FlexContainer>
+        <Space size={4} />
         <Heading
           level={1}
           fontWeightVariant="extraBold"
           color={styledTheme.colors.neutral.neutral800}
         >
-          Full stack
+          Full stack&nbsp;
           <PrimaryGradientColoredText>
-            &nbsp;software engineer&nbsp;
+            software engineer&nbsp;
           </PrimaryGradientColoredText>
           and technical writer
         </Heading>
         <Space size={4} />
         <Paragraph color={styledTheme.colors.neutral.neutral600}>
           Hi, I am <b>Md. Janay Alam</b>, a software engineer based in Dhaka. I
-          am experienced in web development MERN stack. I am proficient in
+          am experienced in web development. I am proficient in
           JavaScript/Typescript, Python, and Java.
         </Paragraph>
         <Space size={4} />
@@ -112,18 +100,7 @@ const HeroSection: React.FC = () => {
           ))}
         </FlexContainer>
       </HeroSectionItem>
-
-      <HeroSectionItem>
-        {upMd ? (
-          <StyledImage
-            src={personalImage}
-            alt="Personal photo"
-            height={upLg ? 480 : upMd ? 380 : 240}
-            width={upLg ? 480 : upMd ? 380 : 240}
-          />
-        ) : null}
-      </HeroSectionItem>
-    </HeroSectionContainer>
+    </SectionContainer>
   );
 };
 
